@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Models_and_Functions.Models
 {
@@ -15,6 +16,7 @@ namespace Models_and_Functions.Models
         internal Figure upfigure;
         internal double perimeter;
         internal double square;
+        internal Color color;
 
         // CONSTRUCTORS
         public Figure()
@@ -32,6 +34,17 @@ namespace Models_and_Functions.Models
             set
             {
                 id = value;
+            }
+        }
+        public Color Color
+        {
+            get
+            {
+                return color;
+            }
+            set
+            {
+                color = value;
             }
         }
         public List<Point> Edges

@@ -12,9 +12,13 @@ namespace Models_and_Functions.Models
         internal int id;
         internal List<Figure> figures;
         internal int level;
+        internal bool visible;
 
         // CONSTRUCTORS
-        public Lair() { }
+        public Lair()
+        {
+            figures = new List<Figure>();
+        }
 
         // PROPERTIES
         public int Id
@@ -39,6 +43,17 @@ namespace Models_and_Functions.Models
                 figures = value;
             }
         }
+        public bool Visible
+        {
+            get
+            {
+                return visible;
+            }
+            set
+            {
+                visible = value;
+            }
+        }
         public int Level
         {
             get
@@ -50,11 +65,22 @@ namespace Models_and_Functions.Models
                 level = value;
             }
         }
+        public string Name
+        {
+            get
+            {
+                return ToString();
+            }
+        }
 
         // METHODS
         public void Add(Figure target)
         {
             figures.Add(target);
+        }
+        public override string ToString()
+        {
+            return string.Format($"Lair {level}");
         }
 
     }
