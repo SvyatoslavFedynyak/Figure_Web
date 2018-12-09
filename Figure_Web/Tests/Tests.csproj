@@ -53,6 +53,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Functions\Perimeter.cs" />
     <Compile Include="Functions\PointOnFigure.cs" />
     <Compile Include="Functions\Range.cs" />
     <Compile Include="Functions\Square.cs" />

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
+using static System.Math;
 
 namespace Models_and_Functions.Models
 {
@@ -88,11 +86,16 @@ namespace Models_and_Functions.Models
         {
             get
             {
+                if (perimeter == 0)
+                {
+                    perimeter = 0;
+                    for (int i = 0; i < edges.Count - 1; i++)
+                    {
+                        perimeter += Functions.GeometricCalculations.DistanceBetweenPoints(edges[i], edges[i + 1]);
+                    }
+                    perimeter += Functions.GeometricCalculations.DistanceBetweenPoints(edges[edges.Count - 1], edges[0]);
+                }
                 return perimeter;
-            }
-            set
-            {
-                perimeter = value;
             }
         }
         public double Square
@@ -105,10 +108,12 @@ namespace Models_and_Functions.Models
                 }
                 return square;
             }
-            set
-            {
-                square = value;
-            }
+        }
+
+        // METHODS 
+        public override string ToString()
+        {
+            return string.Format($"{edges.Count}-edges pentagon with ARGB({color.ToString()}), square: {Square} and perimeter: {Round(Perimeter, 3)}");
         }
 
     }

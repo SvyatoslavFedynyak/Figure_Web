@@ -84,6 +84,33 @@ namespace DesctopSimple
                 drawingPoints.Add(new Models_and_Functions.Models.Point(ConvertXToHub(temp.X), ConvertYToHub(temp.Y)));
                 hubPictureBox.Refresh();
             }
+            else
+            {
+                Models_and_Functions.Models.Point targetPoint = new Models_and_Functions.Models.Point(ConvertXToHub(temp.X), ConvertYToHub(temp.Y));
+                StringBuilder analyseSb = new StringBuilder();
+                analyseSb.AppendLine("Finded figures, which contain this point:");
+                for (int i = appHub.Lairs.Count - 1; i >= 0; i--)
+                {
+                    analyseSb.AppendLine($"{appHub[i].ToString()}:");
+                    if (appHub[i].Figures.Count != 0)
+                    {
+                        if (Models_and_Functions.Functions.GeometricCalculations.IsPointOnFigure(targetPoint, appHub[i].Figures[0])) 
+                        {
+                            analyseSb.AppendLine(appHub[i].Figures[0].ToString());
+                        }
+                        else
+                        {
+                            analyseSb.AppendLine("Empty!");
+                        }
+                    }
+                    else
+                    {
+                        analyseSb.AppendLine("Empty!");
+                    }
+                    analyseSb.AppendLine();
+                }
+                outputTextBox.Text = analyseSb.ToString();
+            }
 
 
         }

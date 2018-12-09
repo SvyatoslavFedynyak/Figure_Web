@@ -31,8 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.hubPictureBox = new System.Windows.Forms.PictureBox();
             this.drawingContextStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.startDrawingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.endDrawingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetDrawingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,15 +42,13 @@
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lairsCheckedListBox = new System.Windows.Forms.CheckedListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.outputTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.startDrawingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lairsContextStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addLairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeCheckedLairsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.figureColorDialog = new System.Windows.Forms.ColorDialog();
-            this.selectColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.outputTextBox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.hubPictureBox)).BeginInit();
             this.drawingContextStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -77,19 +77,33 @@
             this.drawingContextStrip.Name = "contextMenuStrip1";
             this.drawingContextStrip.Size = new System.Drawing.Size(149, 92);
             // 
+            // startDrawingToolStripMenuItem
+            // 
+            this.startDrawingToolStripMenuItem.Name = "startDrawingToolStripMenuItem";
+            this.startDrawingToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.startDrawingToolStripMenuItem.Text = "Start drawing";
+            this.startDrawingToolStripMenuItem.Click += new System.EventHandler(this.startDrawingToolStripMenuItem_Click);
+            // 
             // endDrawingToolStripMenuItem
             // 
             this.endDrawingToolStripMenuItem.Name = "endDrawingToolStripMenuItem";
-            this.endDrawingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.endDrawingToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.endDrawingToolStripMenuItem.Text = "End drawing";
             this.endDrawingToolStripMenuItem.Click += new System.EventHandler(this.endDrawingToolStripMenuItem_Click);
             // 
             // resetDrawingToolStripMenuItem
             // 
             this.resetDrawingToolStripMenuItem.Name = "resetDrawingToolStripMenuItem";
-            this.resetDrawingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.resetDrawingToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.resetDrawingToolStripMenuItem.Text = "Reset drawing";
             this.resetDrawingToolStripMenuItem.Click += new System.EventHandler(this.resetDrawingToolStripMenuItem_Click);
+            // 
+            // selectColorToolStripMenuItem
+            // 
+            this.selectColorToolStripMenuItem.Name = "selectColorToolStripMenuItem";
+            this.selectColorToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.selectColorToolStripMenuItem.Text = "Select color";
+            this.selectColorToolStripMenuItem.Click += new System.EventHandler(this.selectColorToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
@@ -115,25 +129,25 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             // 
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.loadToolStripMenuItem.Text = "Load...";
             // 
             // lairsCheckedListBox
@@ -145,41 +159,6 @@
             this.lairsCheckedListBox.Name = "lairsCheckedListBox";
             this.lairsCheckedListBox.Size = new System.Drawing.Size(184, 112);
             this.lairsCheckedListBox.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(1138, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 24);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Lairs";
-            // 
-            // outputTextBox
-            // 
-            this.outputTextBox.Location = new System.Drawing.Point(1078, 255);
-            this.outputTextBox.Multiline = true;
-            this.outputTextBox.Name = "outputTextBox";
-            this.outputTextBox.Size = new System.Drawing.Size(184, 295);
-            this.outputTextBox.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(1138, 217);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 24);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Output";
-            // 
-            // startDrawingToolStripMenuItem
-            // 
-            this.startDrawingToolStripMenuItem.Name = "startDrawingToolStripMenuItem";
-            this.startDrawingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.startDrawingToolStripMenuItem.Text = "Start drawing";
-            this.startDrawingToolStripMenuItem.Click += new System.EventHandler(this.startDrawingToolStripMenuItem_Click);
             // 
             // lairsContextStrip
             // 
@@ -201,20 +180,41 @@
             this.removeCheckedLairsToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.removeCheckedLairsToolStripMenuItem.Text = "Remove checked lairs";
             // 
-            // selectColorToolStripMenuItem
+            // label1
             // 
-            this.selectColorToolStripMenuItem.Name = "selectColorToolStripMenuItem";
-            this.selectColorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.selectColorToolStripMenuItem.Text = "Select color";
-            this.selectColorToolStripMenuItem.Click += new System.EventHandler(this.selectColorToolStripMenuItem_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(1138, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 24);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Lairs";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(1138, 217);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 24);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Output";
+            // 
+            // outputTextBox
+            // 
+            this.outputTextBox.Location = new System.Drawing.Point(1078, 261);
+            this.outputTextBox.Name = "outputTextBox";
+            this.outputTextBox.Size = new System.Drawing.Size(184, 289);
+            this.outputTextBox.TabIndex = 7;
+            this.outputTextBox.Text = "";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 591);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.outputTextBox);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lairsCheckedListBox);
             this.Controls.Add(this.hubPictureBox);
@@ -243,7 +243,6 @@
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
         private System.Windows.Forms.CheckedListBox lairsCheckedListBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox outputTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ContextMenuStrip drawingContextStrip;
         private System.Windows.Forms.ToolStripMenuItem endDrawingToolStripMenuItem;
@@ -254,6 +253,7 @@
         private System.Windows.Forms.ToolStripMenuItem removeCheckedLairsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem selectColorToolStripMenuItem;
         private System.Windows.Forms.ColorDialog figureColorDialog;
+        private System.Windows.Forms.RichTextBox outputTextBox;
     }
 }
 
