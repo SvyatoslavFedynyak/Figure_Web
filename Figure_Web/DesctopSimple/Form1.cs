@@ -167,14 +167,17 @@ namespace DesctopSimple
 
         private void endDrawingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            appHub.AddLair();
-            appHub[appHub.Lairs.Count - 1].Add(new Figure() { Edges = drawingPoints, Color = drawingColor });
-            appHub[appHub.Lairs.Count - 1].Visible = true;
-            drawingPoints = new List<Models_and_Functions.Models.Point>();
-            drawingPoints.Clear();
-            isDrawing = false;
-            hubPictureBox.Refresh();
-            RebuildLairList();
+            if (isDrawing && drawingPoints.Count > 2)
+            {
+                appHub.AddLair();
+                appHub[appHub.Lairs.Count - 1].Add(new Figure() { Edges = drawingPoints, Color = drawingColor });
+                appHub[appHub.Lairs.Count - 1].Visible = true;
+                drawingPoints = new List<Models_and_Functions.Models.Point>();
+                drawingPoints.Clear();
+                isDrawing = false;
+                hubPictureBox.Refresh();
+                RebuildLairList(); 
+            }
         }
 
         private void RebuildLairList()
@@ -200,6 +203,59 @@ namespace DesctopSimple
             {
                 drawingColor = figureColorDialog.Color;
             }
+        }
+
+        private void removeCheckedLairsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lairsCheckedListBox.SelectedIndex == -1)
+            {
+                return;
+            }
+            appHub.RemoveLairAt(lairsCheckedListBox.SelectedIndex);
+            RebuildLairList();
+            lairsCheckedListBox.Refresh();
+            hubPictureBox.Refresh();
+        }
+
+        private void moveDownToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lairsCheckedListBox.SelectedIndex == -1)
+            {
+                return;
+            }
+                appHub.MoveDown(lairsCheckedListBox.SelectedIndex);
+                RebuildLairList();
+                lairsCheckedListBox.Refresh();
+                hubPictureBox.Refresh(); 
+        }
+
+        private void moveUpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lairsCheckedListBox.SelectedIndex == -1)
+            {
+                return;
+            }
+            appHub.MoveUp(lairsCheckedListBox.SelectedIndex);
+            RebuildLairList();
+            lairsCheckedListBox.Refresh();
+            hubPictureBox.Refresh();
+        }
+
+        private void infoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"Info:\nField size: 1000:500\nDeveloper: Svyatoslav Fedynyak");
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            drawingColor = Color.Black;
+            isDrawing = false;
+            drawingPoints = new List<Models_and_Functions.Models.Point>();
+            appHub = new Hub(fieldWidth, fieldHeigh);
+            ((ListBox)lairsCheckedListBox).DataSource = appHub.Lairs;
+            ((ListBox)lairsCheckedListBox).DisplayMember = "Name";
+            ((ListBox)lairsCheckedListBox).ValueMember = "Visible";
+            hubPictureBox.Refresh();
         }
     }
 }

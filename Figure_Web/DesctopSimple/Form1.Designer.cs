@@ -35,23 +35,22 @@
             this.endDrawingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetDrawingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lairsCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.lairsContextStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.addLairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeCheckedLairsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moveUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moveDownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.figureColorDialog = new System.Windows.Forms.ColorDialog();
             this.outputTextBox = new System.Windows.Forms.RichTextBox();
+            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.hubPictureBox)).BeginInit();
             this.drawingContextStrip.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.mainMenuStrip.SuspendLayout();
             this.lairsContextStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,23 +104,21 @@
             this.selectColorToolStripMenuItem.Text = "Select color";
             this.selectColorToolStripMenuItem.Click += new System.EventHandler(this.selectColorToolStripMenuItem_Click);
             // 
-            // menuStrip1
+            // mainMenuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1284, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.mainMenuStrip.Name = "mainMenuStrip";
+            this.mainMenuStrip.Size = new System.Drawing.Size(1284, 24);
+            this.mainMenuStrip.TabIndex = 1;
+            this.mainMenuStrip.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
-            this.saveToolStripMenuItem,
-            this.saveAsToolStripMenuItem,
-            this.loadToolStripMenuItem});
+            this.infoToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -129,26 +126,9 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "New";
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.saveToolStripMenuItem.Text = "Save";
-            // 
-            // saveAsToolStripMenuItem
-            // 
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.saveAsToolStripMenuItem.Text = "Save As...";
-            // 
-            // loadToolStripMenuItem
-            // 
-            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.loadToolStripMenuItem.Text = "Load...";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // lairsCheckedListBox
             // 
@@ -163,22 +143,32 @@
             // lairsContextStrip
             // 
             this.lairsContextStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addLairToolStripMenuItem,
-            this.removeCheckedLairsToolStripMenuItem});
+            this.removeCheckedLairsToolStripMenuItem,
+            this.moveUpToolStripMenuItem,
+            this.moveDownToolStripMenuItem});
             this.lairsContextStrip.Name = "lairsContextStrip";
-            this.lairsContextStrip.Size = new System.Drawing.Size(189, 48);
-            // 
-            // addLairToolStripMenuItem
-            // 
-            this.addLairToolStripMenuItem.Name = "addLairToolStripMenuItem";
-            this.addLairToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.addLairToolStripMenuItem.Text = "Add lair";
+            this.lairsContextStrip.Size = new System.Drawing.Size(138, 70);
             // 
             // removeCheckedLairsToolStripMenuItem
             // 
             this.removeCheckedLairsToolStripMenuItem.Name = "removeCheckedLairsToolStripMenuItem";
-            this.removeCheckedLairsToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.removeCheckedLairsToolStripMenuItem.Text = "Remove checked lairs";
+            this.removeCheckedLairsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.removeCheckedLairsToolStripMenuItem.Text = "Remove";
+            this.removeCheckedLairsToolStripMenuItem.Click += new System.EventHandler(this.removeCheckedLairsToolStripMenuItem_Click);
+            // 
+            // moveUpToolStripMenuItem
+            // 
+            this.moveUpToolStripMenuItem.Name = "moveUpToolStripMenuItem";
+            this.moveUpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.moveUpToolStripMenuItem.Text = "Move up";
+            this.moveUpToolStripMenuItem.Click += new System.EventHandler(this.moveUpToolStripMenuItem_Click);
+            // 
+            // moveDownToolStripMenuItem
+            // 
+            this.moveDownToolStripMenuItem.Name = "moveDownToolStripMenuItem";
+            this.moveDownToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.moveDownToolStripMenuItem.Text = "Move down";
+            this.moveDownToolStripMenuItem.Click += new System.EventHandler(this.moveDownToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -208,6 +198,13 @@
             this.outputTextBox.TabIndex = 7;
             this.outputTextBox.Text = "";
             // 
+            // infoToolStripMenuItem
+            // 
+            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.infoToolStripMenuItem.Text = "Info";
+            this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -218,14 +215,14 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lairsCheckedListBox);
             this.Controls.Add(this.hubPictureBox);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.mainMenuStrip);
+            this.MainMenuStrip = this.mainMenuStrip;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Figures drawer and analiser";
             ((System.ComponentModel.ISupportInitialize)(this.hubPictureBox)).EndInit();
             this.drawingContextStrip.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.mainMenuStrip.ResumeLayout(false);
+            this.mainMenuStrip.PerformLayout();
             this.lairsContextStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -235,12 +232,9 @@
         #endregion
 
         private System.Windows.Forms.PictureBox hubPictureBox;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip mainMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
         private System.Windows.Forms.CheckedListBox lairsCheckedListBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -249,11 +243,13 @@
         private System.Windows.Forms.ToolStripMenuItem resetDrawingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startDrawingToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip lairsContextStrip;
-        private System.Windows.Forms.ToolStripMenuItem addLairToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem moveUpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeCheckedLairsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem selectColorToolStripMenuItem;
         private System.Windows.Forms.ColorDialog figureColorDialog;
         private System.Windows.Forms.RichTextBox outputTextBox;
+        private System.Windows.Forms.ToolStripMenuItem moveDownToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
     }
 }
 

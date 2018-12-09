@@ -96,6 +96,26 @@ namespace Models_and_Functions.Models
             syncroniseLevels();
             return res;
         }
+        public void MoveUp(int pos)
+        {
+            if (pos < lairs.Count - 1)
+            {
+                Lair temp = lairs[pos];
+                lairs.RemoveAt(pos);
+                lairs.Insert(pos + 1, temp);
+                syncroniseLevels();
+            }
+        }
+        public void MoveDown(int pos)
+        {
+            if (pos > 0)
+            {
+                Lair temp = lairs[pos];
+                lairs.RemoveAt(pos);
+                lairs.Insert(pos - 1, temp);
+                syncroniseLevels();
+            }
+        }
 
         #endregion
 
@@ -107,7 +127,7 @@ namespace Models_and_Functions.Models
             {
                 lairs[i].level = i;
             }
-        } 
+        }
 
         #endregion
 
